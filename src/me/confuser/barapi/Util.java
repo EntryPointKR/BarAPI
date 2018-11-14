@@ -23,7 +23,7 @@ public class Util {
 
   public static boolean newProtocol = false;
   public static String version;
-  public static Class<?> fakeDragonClass = v1_6.class;
+  public static Class<?> fakeDragonClass = v1_5.class;
   public static boolean isBelowGround = true;
 
   static {
@@ -43,7 +43,10 @@ public class Util {
       if (versions[0].equals("v1")) {
         int minor = Integer.parseInt(versions[1]);
 
-        if (minor == 7) {
+        if (minor == 6) {
+          newProtocol = false;
+          fakeDragonClass = v1_6.class;
+        } else if (minor == 7) {
           newProtocol = true;
           fakeDragonClass = v1_7.class;
         } else if (minor == 8) {

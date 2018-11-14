@@ -21,6 +21,7 @@
         <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
@@ -65,10 +66,6 @@
             <id>gravity-repo</id>
             <url>http://repo.gravitydevelopment.net</url>
         </repository>
-        <repository>
-            <id>Plugin Metrics</id>
-            <url>http://repo.mcstats.org/content/repositories/snapshots</url>
-        </repository>
     </repositories>
     <dependencies>
         <dependency>
@@ -87,12 +84,6 @@
             <groupId>net.gravitydevelopment.updater</groupId>
             <artifactId>updater</artifactId>
             <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mcstats.bukkit</groupId>
-            <artifactId>metrics-lite</artifactId>
-            <version>R8-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

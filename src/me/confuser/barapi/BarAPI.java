@@ -19,9 +19,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.mcstats.MetricsLite;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -412,12 +410,12 @@ public class BarAPI extends JavaPlugin implements Listener {
       new Updater(this, 64876, getFile(), Updater.UpdateType.DEFAULT, false);
     }
 
-    try {
-      MetricsLite metrics = new MetricsLite(this);
-      metrics.start();
-    } catch (IOException e) {
-      // Failed to submit the stats :-(
-    }
+//    try {
+//      MetricsLite metrics = new MetricsLite(this);
+//      metrics.start();
+//    } catch (IOException e) {
+//      // Failed to submit the stats :-(
+//    }
 
     plugin = this;
 
