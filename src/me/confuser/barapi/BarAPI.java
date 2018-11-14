@@ -136,6 +136,26 @@ public class BarAPI extends JavaPlugin implements Listener {
     sendDragon(dragon, player);
   }
 
+  public static void setMessage(final Player player, String message, float percent, long timeoutTicks) {
+    if (hasBar(player)) {
+      removeBar(player);
+    }
+    FakeDragon dragon = getDragon(player, message);
+    dragon.name = cleanMessage(message);
+    dragon.health = (percent / 100f) * dragon.getMaxHealth();
+    cancelTimer(player);
+    sendDragon(dragon, player);
+    timers.put(player.getUniqueId(), Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
+      @Override
+      public void run() {
+        if (hasBar(player)) {
+          removeBar(player);
+        }
+        cancelTimer(player);
+      }
+    }, timeoutTicks).getTaskId());
+  }
+
   /**
    * Set a message for all players.<br>
    * It will remain there for each player until the player logs off or another plugin overrides it.<br>
